@@ -5,8 +5,6 @@ void main() {
   runApp(const MyApp());
 }
 
-final sliderData = SliderData();
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -28,12 +26,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sliderdata = SliderData();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
       body: SliderNotifier(
-        sliderData: sliderData,
+        sliderData: sliderdata,
         child: Builder(
           builder: (context) {
             return Column(
@@ -41,7 +40,7 @@ class MyHomePage extends StatelessWidget {
                 Slider(
                   value: SliderNotifier.of(context),
                   onChanged: (value) {
-                    sliderData.value = value;
+                    sliderdata.value = value;
                   },
                 ),
                 Row(
